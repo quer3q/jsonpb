@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package jsonpbtest;
+
+option go_package = "jsonpbtestpb";
+option java_multiple_files = true;
+option java_outer_classname = "JsonpbTestProto";
+option java_package = "com.jsonpbtest";
+
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+import "google/protobuf/timestamp.proto";
+
+message Test {
+    string str_emit_always = 1 [(gogoproto.moretags) = "emit:\"always\""];
+    string str_emit_default = 2;
+    google.protobuf.Timestamp ts_emit_always = 3 [(gogoproto.moretags) = "emit:\"always\""];
+    google.protobuf.Timestamp ts_emit_default = 4;
+}
+
